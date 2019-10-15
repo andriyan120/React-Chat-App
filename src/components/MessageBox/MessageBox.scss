@@ -1,0 +1,118 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.message-box {
+	padding: $base-padding;
+	margin: $base-margin * 0.5 $base-margin;
+	width: 60%;
+	background: #fff;
+   	border-radius: 10px;
+	border-bottom-left-radius: 0;	
+	border: 1px solid #e9e9e9;
+	@include transition(all 0.15s);
+
+	&:hover &__meta, &:hover &__date {
+		color: darken($primary-text-color, 10%);
+	}		
+
+	&__body {
+		cursor: pointer;
+	}
+	
+	&__meta {
+		font-weight: bold;
+		margin-bottom: $baseline * 0.2;
+		@include meta-text();
+		@include transition(all 0.15s);
+	}
+
+	&__date {
+		float: right;
+		font-weight: lighter;
+		@include date-text();
+		@include transition(all 0.15s);
+	}
+	
+	&__footer {
+		display: block;
+		margin-top: $baseline;
+		padding: $baseline * 0.5;
+		padding-bottom: 0;
+		border-top: 1px solid #dedede;
+		text-align: center;
+		@include transition(all 0.15s);
+
+		&--hidden {
+			height: 0;
+			padding: 0;
+			opacity: 0;
+			overflow: hidden;
+			margin-top: 0;
+		}
+	}
+
+	&__option {
+		padding: $baseline * 0.25 $baseline * 0.5;
+		display: inline;
+		background: transparent;
+		color: $primary-brand-color;
+		font-size: $baseline * 0.5;
+		border: 1px solid $primary-brand-color;
+		border-radius: 50px;
+		cursor: pointer;
+		@include transition(all 0.15s);
+
+		&:hover {
+			background: $primary-brand-color;
+			color: #fff;
+		}
+	
+		&--danger {
+			color: $primary-danger-color;
+			border: 1px solid $primary-danger-color;
+
+			&:hover {
+				background: $primary-danger-color;
+				color: #fff;
+			}	
+		}
+	}
+
+	&--from-me {
+		background: $primary-brand-color;
+		color: #fff;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 0;
+		border: none;
+		transform: translateX(55%);
+	}
+
+	&--from-me &__meta, &--from-me &__date {
+		color: lighten($primary-brand-color, 35%);
+	}
+
+	&--from-me:hover &__meta, &--from-me:hover &__date {
+		color: #fff;
+	}	
+
+	&--from-me &__option {
+		color: #fff;
+		border: 1px solid #fff;
+
+		&:hover {
+			background: #fff;
+			color: $primary-brand-color;
+		}
+	
+		&--danger {
+			color: #fff;
+			border: 1px solid #fff;
+
+			&:hover {
+				background: #fff;
+				color: $primary-danger-color;
+			}	
+		}
+
+	}
+}

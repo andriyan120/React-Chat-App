@@ -1,0 +1,53 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+import Input from '../Input/Input';
+import Button from '../Button';
+
+class InputWindow extends Component {
+    constructor(props) {
+        super(props)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.focusInput = this.focusInput.bind(this)        
+    }
+
+    handleSubmit() {
+        let input = this.input.getInput();
+        this.input.clearInput();
+        this.props.onSubmit(input);
+    }
+
+    focusInput(){
+        this.input.focusInput();
+    }
+
+
+
+    render() {
+        return (
+            <div className="input-window">
+                <div className="input-window__form">
+                    <Input 
+                        ref={input => this.input = input}    
+                        placeholder={this.props.placeholder}
+                        onSubmit={this.handleSubmit}
+                     />
+                </div>
+                <div className="input-window__action">
+                    <Button 
+                        text='Send' 
+                        icon={<i className='lnr lnr-upload'></i>} 
+                        onClick={this.handleSubmit} 
+                     />
+                </div>
+            </div>
+        )
+    }
+}
+
+InputWindow.propTypes = {
+    placeholder: PropTypes.string,
+    onSubmit: PropTypes.func
+}
+
+export default InputWindow;

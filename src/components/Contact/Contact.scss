@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.contact {
+	height: $baseline * 1.5;
+	padding: $baseline * 0.5;
+	cursor: pointer;
+	background: transparent;
+	color: rgb(138, 138, 138);
+	@include transition(all 0.15s);
+
+	&:hover, &--active {
+		background: darken($sidebar-color, 5%);
+	}
+
+	&__image {
+		position: relative;
+		float: left;
+		width: $baseline * 1.5;
+		height: $baseline * 1.5;
+		margin-right: $baseline * 0.5;
+		top: 50%;
+		transform: translateY(-50%);
+		border-radius: 50%;
+	}
+
+	&__content {
+		float: left;
+		width: 40%
+	}
+
+	&__title {
+		display: block;
+		font-size: $baseline * 0.55;
+	}
+
+	&__meta {
+		display: block;
+		@include date-text($sidebar-color);	
+	}
+
+	&__date {
+		float:right;
+		margin-left: $baseline * 0.2;
+		@include meta-text($sidebar-color);	
+	}
+}
