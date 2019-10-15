@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.sidebar {
+	position: relative;
+	float: left;
+	width: 25%;
+	height: 100%;
+	box-sizing: border-box;
+	background: $sidebar-color;
+	color: #fff;
+	z-index: 2;
+
+	&__tab-menu {
+		height: $top-bar-height;
+	}
+}
