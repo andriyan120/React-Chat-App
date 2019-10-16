@@ -1,0 +1,17 @@
+@mixin transition($options...) {
+    transition: $options;
+    -moz-transition: $options;
+    -o-transition: $options;
+    -webkit-transition: $options;
+}
+
+@mixin meta-text($color: $primary-text-color) {
+	color: lighten($color, 20%);
+	font-size: $base-text-size * 0.8;
+
+}
+
+@mixin date-text($color: $primary-text-color) {
+	color: lighten($color, 30%);
+	font-size: $base-text-size * 0.8;
+}
