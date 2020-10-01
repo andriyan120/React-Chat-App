@@ -6,7 +6,8 @@ class MessageBox extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            footerOpened: false
+            footerOpened: false,
+		text: 'message true'
         };
         this.toggleFooter = this.toggleFooter.bind(this);
     }
